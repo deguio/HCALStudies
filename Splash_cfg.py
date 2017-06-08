@@ -228,8 +228,8 @@ process.schedule = cms.Schedule(
     process.recoPath,
     process.p,
     #process.tasksPath,
-    process.harvestingPath,
-    process.dqmPath
+    #process.harvestingPath,
+    #process.dqmPath
     )
 
 
