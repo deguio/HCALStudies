@@ -1,0 +1,16 @@
+<FrameworkJobReport>
+<FallbackAttempt Pfn="root://xrootd-cms.infn.it//store/data/Commissioning2017/Cosmics/RAW/v1/000/288/236/00000/3A83D9D0-DFFC-E611-8E76-02163E019CB5.root" Lfn="/store/data/Commissioning2017/Cosmics/RAW/v1/000/288/236/00000/3A83D9D0-DFFC-E611-8E76-02163E019CB5.root" />
+<![CDATA[
+An exception of category 'FileOpenError' occurred while
+   [0] Calling StorageFactory::open()
+   [1] Calling XrdFile::open()
+Exception Message:
+Failed to open the file 'root://eoscms.cern.ch//eos/cms/store/data/Commissioning2017/Cosmics/RAW/v1/000/288/236/00000/3A83D9D0-DFFC-E611-8E76-02163E019CB5.root'
+   Additional Info:
+      [a] XrdCl::File::Open(name='root://eoscms.cern.ch//eos/cms/store/data/Commissioning2017/Cosmics/RAW/v1/000/288/236/00000/3A83D9D0-DFFC-E611-8E76-02163E019CB5.root', flags=0x10, permissions=0660) => error '[ERROR] Server responded with an error: [3011] Unable to open file /eos/cms/store/data/Commissioning2017/Cosmics/RAW/v1/000/288/236/00000/3A83D9D0-DFFC-E611-8E76-02163E019CB5.root; No such file or directory
+' (errno=3011, code=400). No additional data servers were found.
+      [b] Last URL tried: root://eoscms.cern.ch:1094//eos/cms/store/data/Commissioning2017/Cosmics/RAW/v1/000/288/236/00000/3A83D9D0-DFFC-E611-8E76-02163E019CB5.root?tried=
+      [c] Problematic data server: eoscms.cern.ch:1094
+      [d] Disabled source: eoscms.cern.ch:1094
+
+]]>
