@@ -223,7 +223,7 @@ void LEDAnalysis::analyze(const edm::Event& ev, const edm::EventSetup& es)
     _p1_timing_channel_vs_ieta[did.depth()] -> Fill( did.ieta(),time );
     
     // iterate thru all TS and fill
-    for(int j = _firstTS_QIE8; j < _lastTS_QIE8; ++j)
+    for(int j = _firstTS_QIE8; j <= _lastTS_QIE8; ++j)
     {      
       sumQPedSub += ( cs[j]-ped_fC );
       
@@ -382,7 +382,7 @@ void LEDAnalysis::analyze(const edm::Event& ev, const edm::EventSetup& es)
     _p1_timing_channel_vs_ieta[did.depth()] -> Fill( did.ieta(),time );    
     
     // iterate thru all TS and fill
-    for(int j = _firstTS_QIE11; j < _lastTS_QIE11; ++j)
+    for(int j = _firstTS_QIE11; j <= _lastTS_QIE11; ++j)
     {      
       sumQPedSub += ( cs[j]-ped_fC );
       
@@ -528,7 +528,7 @@ void LEDAnalysis::analyze(const edm::Event& ev, const edm::EventSetup& es)
     }
     ped_ADC /= (1.*_preTS_QIE10);
     ped_fC /= (1.*_preTS_QIE10);
-    time /= sumQ;    
+    time = time/sumQ + 2.;
     
     
     // basic selection

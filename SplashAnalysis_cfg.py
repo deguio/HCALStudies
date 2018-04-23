@@ -7,7 +7,10 @@ import os
 #---------------
 
 sourceTag = "PoolSource"         # for global runs
-inputTagRaw = "rawDataCollector" # for global runs
+#sourceTag = "HcalTBSource"        # for local runs
+
+inputTagRaw = "rawDataCollector"  # for global runs
+#inputTagRaw = "source"             # for local runs
 
 #-----------------------------------
 # Standard CMSSW Imports/Definitions
@@ -17,7 +20,7 @@ from Configuration.StandardSequences.Eras import eras
 process = cms.Process('Splash2018',eras.Run2_2018)
 
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff")
-process.GlobalTag.globaltag = '100X_dataRun2_HLT_v3'
+process.GlobalTag.globaltag = '101X_dataRun2_HLT_v7'
 
 
 #-----------
@@ -41,11 +44,17 @@ process.maxEvents = cms.untracked.PSet(
 process.source = cms.Source(
     sourceTag,
     fileNames = cms.untracked.vstring(
-        'file:/afs/cern.ch/user/d/deguio/public/Splash2018/BeamSplash_beam1.root'
+#        'file:/eos/cms/store/group/dpg_hcal/comm_hcal/USC/run313632/USC_313632.root'
+
+#        'file:/afs/cern.ch/user/d/deguio/public/Splash2018/BeamSplash_run313574_beam1.root',
+        'file:/afs/cern.ch/user/d/deguio/public/Splash2018/BeamSplash_run313574_beam2.root'
+#        'file:/afs/cern.ch/user/d/deguio/public/Splash2018/BeamSplash_run313133_beam1.root',
+#        'file:/afs/cern.ch/user/d/deguio/public/Splash2018/BeamSplash_run313134_beam2.root'
         )
     )
 
-process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange('313133:130')
+process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange('313574:207')
+#process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange('313134:125')
 
 #-----------------------------------------
 # CMSSW/Hcal non-DQM Related Module import
@@ -102,6 +111,8 @@ process.ledAnalysis.firstTS_QIE10 = cms.int32(0)
 process.ledAnalysis.lastTS_QIE10 = cms.int32(2)
 process.ledAnalysis.preTS_QIE10 = cms.int32(1)
 
+
+process.hcalDigis.InputLabel = inputTagRaw
 #----------------------------
 # Paths/Sequences Definitions
 #----------------------------
@@ -112,7 +123,7 @@ process.tasksPath = cms.Path(
     #+process.tpTask
     +process.nocqTask
     +process.qie11Task
-    +process.recHitTask
+    process.recHitTask
 )
 
 process.harvestingPath = cms.Path(

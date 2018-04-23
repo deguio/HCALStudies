@@ -12,9 +12,9 @@ process.options = cms.untracked.PSet(
     )
 
 process.skimming = cms.EDFilter("BeamSplash",
-    energycuttot = cms.untracked.double(10000.0),
-    energycutecal = cms.untracked.double(7000.0),
-    energycuthcal = cms.untracked.double(7000.0),
+    energycuttot = cms.untracked.double(1000000.0),
+    energycutecal = cms.untracked.double(700000.0),
+    energycuthcal = cms.untracked.double(700000.0),
     ebrechitcollection =   cms.InputTag("ecalRecHit","EcalRecHitsEB"),
     eerechitcollection =   cms.InputTag("ecalRecHit","EcalRecHitsEE"),
     hbherechitcollection =   cms.InputTag("hbheprereco")
@@ -34,21 +34,23 @@ process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(
 #        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/133/00000/2614101D-0234-E811-9F32-02163E019FC2.root',
         
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/B8CDB100-0434-E811-BB34-FA163E58F6F5.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/8E321DE6-0434-E811-9597-FA163EFD7D19.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/DC1E0EF7-0434-E811-B4C8-FA163EAF9C14.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/7CE0E79D-0434-E811-B674-FA163ED953E6.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/A6A5FA5D-0634-E811-86F8-FA163E8DC6F6.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/BE71657B-0834-E811-A3E6-FA163EE3F92D.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/484E83AE-0534-E811-8ADE-FA163ED80987.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/186AD5D3-0634-E811-B7C1-FA163E1C1225.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/BA0168CB-0634-E811-80F7-FA163E9ED082.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/7A95DDD0-0A34-E811-93AA-FA163E6071C0.root',
-        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/4828E68D-0734-E811-B31D-FA163EB2B95B.root'
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/B8CDB100-0434-E811-BB34-FA163E58F6F5.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/8E321DE6-0434-E811-9597-FA163EFD7D19.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/DC1E0EF7-0434-E811-B4C8-FA163EAF9C14.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/7CE0E79D-0434-E811-B674-FA163ED953E6.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/A6A5FA5D-0634-E811-86F8-FA163E8DC6F6.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/BE71657B-0834-E811-A3E6-FA163EE3F92D.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/484E83AE-0534-E811-8ADE-FA163ED80987.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/186AD5D3-0634-E811-B7C1-FA163E1C1225.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/BA0168CB-0634-E811-80F7-FA163E9ED082.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/7A95DDD0-0A34-E811-93AA-FA163E6071C0.root',
+#        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/134/00000/4828E68D-0734-E811-B31D-FA163EB2B95B.root'
+
+        'file:/eos/cms/store/data/Commissioning2018/MinimumBias/RAW/v1/000/313/574/00000/FE06EE55-8939-E811-AA55-FA163E7A03BE.root'
 
 
 ))
-process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange('313134:0-313134:87','313134:97-313134:120','313134:124-313134:9999')
+process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange('313574:187-313574:9999')
 
 
 process.maxEvents = cms.untracked.PSet(
